@@ -119,8 +119,8 @@ listen:
     ## certificate, specify the full path to the
     ## file and uncomment these lines:
     ##
-#    certfile: "/etc/ejabberd/ejabberd.pem"
-#    starttls: true
+    ##certfile: "/etc/ejabberd/ejabberd.pem"
+    ##starttls: true
     ##
     ## To enforce TLS encryption for client connections,
     ## use this instead of the "starttls" option:
@@ -172,9 +172,8 @@ listen:
     port: 4560
     module: ejabberd_xmlrpc
     access_commands: {}
-    #tls : true
-    #Certfile : /etc/ejabberd/ejabberd.pem
-
+    ##tls: true
+    ##certfile: "/etc/ejabberd/ejabberd.pem"
   - 
     port: 5280
     module: ejabberd_http
@@ -185,8 +184,8 @@ listen:
     http_bind: true
     ## register: true
     captcha: true
- #   tls: true
- #   certfile: "/etc/ejabberd/ejabberd.pem"
+    ##tls: true
+    ## certfile: "/etc/ejabberd/ejabberd.pem"
 ###.  ==================
 ###'  S2S GLOBAL OPTIONS
 
@@ -244,7 +243,7 @@ listen:
 ## If you want to use a different method,
 ## comment this line and enable the correct ones.
 ##
-#auth_method: internal
+auth_method: internal
 
 ##
 ## Store the plain passwords or hashed for SCRAM:
@@ -264,8 +263,8 @@ listen:
 ##
 ## Authentication using SQL
 ## Remember to setup a database in the next section.
-#
-auth_method: sql
+##
+## auth_method: sql
 
 ##
 ## Authentication using PAM
@@ -336,15 +335,16 @@ auth_method: sql
 ## Please consult the ejabberd Guide for details on database creation.
 
 ##
-##MySQL server:
-sql_type: mysql
-sql_server: "newbe-dev.cqxmue36eeil.ap-southeast-2.rds.amazonaws.com"
-sql_database: "ejabberd"
-sql_username: "newbe"
-sql_password: "Nvnnfc8ZK!1"
+## MySQL server:
+##
+## sql_type: mysql
+## sql_server: "server"
+## sql_database: "database"
+## sql_username: "username"
+## sql_password: "password"
 ##
 ## If you want to specify the port:
-## sql_port: 3306
+## sql_port: 1234
 
 ##
 ## PostgreSQL server:
@@ -414,7 +414,7 @@ acl:
   ## You can put here as many accounts as you want.
   ##
   admin:
-    user:
+     user:
        - "admin@localhost"
   ##     - "ermine@example.org"
   ##
@@ -615,7 +615,7 @@ modules:
     ping_ack_timeout: 30
 
   mod_mam:
-    db_type: sql
+    db_type: mnesia
     default: always
     request_activates_archiving: true
     assume_mam_usage: true
